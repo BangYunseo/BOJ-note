@@ -2,7 +2,6 @@ T = int(input())
 for i in range(T):
     
     H, W, N = map(int,input().split())
-    num = N
     Room_Floor = N % H * 100
     Room_Num = N // H + 1
     if N % H == 0:
