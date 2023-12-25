@@ -2,7 +2,7 @@ import sys
 
 arr = []
 for i in range(int(sys.stdin.readline())):
-    a = int(input())
+    a = int(sys.stdin.readline())
     if a != 0:
         arr.append(a)
     else:
