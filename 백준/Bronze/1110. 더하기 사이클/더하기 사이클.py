@@ -1,13 +1,13 @@
 N = int(input())
-N2 = N
+num = N
 count = 0
-a = '100'
-while int(a) != N:
-    ten = N2 // 10
-    one = N2 % 10
-    v1 = ten + one
-    v2 = v1 % 10
-    a = str(one) + str(v2)
+
+while (True):
+    a = num // 10
+    b = num % 10
+    c = (a + b) % 10
+    num = (b * 10) + c
     count += 1
-    N2 = int(a)
+    if(num == N):
+        break
 print(count)
