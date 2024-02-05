@@ -1,11 +1,11 @@
 N = int(input())
-numList = list(map(int, input().split()))
-score = 0
+scorelist = list(map(int, input().split()))
 res = 0
+add = 1
 for i in range(N):
-    if (numList[i] == 1):
-        score += 1
-    else:
-        score = 0
-    res += score
+    if scorelist[i] == 0:
+        add = 1
+        continue
+    res += add
+    add += 1
 print(res)
