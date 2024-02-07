@@ -1,10 +1,10 @@
 import sys
 
-for i in range(int(input())):
-    zerocount = 0
+for i in range(int(sys.stdin.readline())):
     N, M = map(int, sys.stdin.readline().split())
-    for x in range(N, M + 1):
-        for y in str(x):
-            if y == '0':
-                zerocount += 1
-    print(zerocount)
+    count = 0
+    for j in range(N, M + 1):
+        for x in str(j):
+            if x == '0':
+                count += 1
+    print(count)
