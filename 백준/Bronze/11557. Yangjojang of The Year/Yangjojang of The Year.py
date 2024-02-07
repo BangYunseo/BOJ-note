@@ -1,13 +1,8 @@
-T = int(input())
-for _ in range(T):
-    N = int(input())
-    max = 0
-    mS = ""
-    for i in range(N):
+for i in range(int(input())):
+    arrs = []
+    arrl = []
+    for j in range(int(input())):
         S, L = input().split()
-        L = int(L)
-        if(L > max):
-            max = L
-            mS = S
-    print(mS)
-        
+        arrs.append(S)
+        arrl.append(int(L))
+    print(arrs[arrl.index(max(arrl))])
