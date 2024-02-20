@@ -1,10 +1,14 @@
-a,b,c=map(int,input().split())
-d=int(input())
-
-s1=(c+d)%60
-m1=(c+d)//60
-m2=(b+m1)%60
-h1=(b+m1)//60
-h2=(a+h1)%24
-
-print(h2,m2,s1)
+A, B, C = map(int, input().split())
+D = int(input())
+A += D // 3600
+B +=  (D % 3600) // 60
+C += (D % 60) % 60
+while(C >= 60):
+    C -= 60
+    B += 1
+while(B >= 60):
+    B -= 60
+    A += 1
+while(A >= 24):
+    A -= 24
+print(A, B, C)
