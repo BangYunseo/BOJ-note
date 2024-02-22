@@ -3,21 +3,18 @@ input = sys.stdin.readline
 
 N, M = map(int, input().split())
 
-dic = dict()
-arr = []
-count = 0
+arr1 = []
+arr2 = []
 
-for i in range(N + M):
-    word = input().rstrip()
-    if word not in dic:
-        dic[word] = 0
-    else:
-        dic[word] += 1
-for a in dic:
-    if dic[a] == 1:
-        count += 1
-        arr.append(a)
-arr.sort()
-print(count)
-for b in arr:
-    print(b)
+for i in range(N):
+    word = input()
+    arr1.append(word)
+for j in range(M):
+    word2 = input()
+    arr2.append(word2)
+
+res = list(set(arr1) & set(arr2))
+res.sort()
+print(len(res))
+for j in range(len(res)):
+    print(res[j].rstrip())
