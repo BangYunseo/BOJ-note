@@ -1,29 +1,22 @@
 import sys
-N, M, B = map(int,input().split())
-block = []
-for _ in range(N):
-    block.append([int(x) for x in sys.stdin.readline().rstrip().split()])
+input = sys.stdin.readline
 
-ans = int(1e9)
-glevel = 0
+ans = sys.maxsize
+level = 0
+N, M, B = map(int, input().split())
+arr = [list(map(int, input().split())) for j in range(N)]
 
-for i in range(257):
-    use_block = 0
-    take_block = 0
-    for x in range(N):
-        for y in range(M):
-            if block[x][y] > i:
-                take_block += block[x][y] - i
+for a in range(257):
+    use, take = 0, 0
+    for i in range(N):
+        for j in range(M):
+            if arr[i][j] > a:
+                take += arr[i][j] - a
             else:
-                use_block += i - block[x][y]
+                use += a - arr[i][j]
+    if take + B >= use:
+        if(take * 2) + use <= ans:
+            ans = (take * 2) + use
+            level = a
 
-    if use_block > take_block + B:
-        continue
-
-    count = take_block * 2 + use_block
-
-    if count <= ans:
-        ans = count
-        glevel = i
-
-print(ans, glevel)
+print(ans, level)
