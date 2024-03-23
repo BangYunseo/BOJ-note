@@ -2,23 +2,18 @@
 
 using namespace std;
 
-long long fiboarr[50] = {0, 1, };
-long long fibo(int N){
-    if(N == 0 || N == 1)
-        return fiboarr[N];
-    else if(fiboarr[N] == 0)
-        fiboarr[N] = fibo(N-1) + fibo(N-2);
-    return fiboarr[N];
-}
-
 int main(){
+    int zero[41] = {1, 0, };
+    int one[41] = {0, 1, };
     int T, N;
     cin >> T;
+    
     for(int i = 0; i < T; i++){
         cin >> N;
-            if(N == 0)
-                cout << "1 0" << endl;
-            else
-                cout << fibo(N - 1) << " " << fibo(N) << endl;
+        for(int j = 2; j <= N; j++){
+            zero[j] = zero[j-2] + zero[j-1];
+            one[j] = one[j-2] + one[j-1];
+        }
+        cout << zero[N] << ' ' << one[N] << endl;
     }
 }
