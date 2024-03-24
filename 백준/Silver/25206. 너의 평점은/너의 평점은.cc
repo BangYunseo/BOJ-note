@@ -1,60 +1,27 @@
 #include <iostream>
-
 using namespace std;
-
-int main(){
-    string grade = "";
-    float val, res;
-    float res1 = 0;
-    float res2 = 0;
-    string sub;
-    for(int i = 0; i < 20; i++){
-        cin >> sub >> val >> grade;
-        if (grade == "A+"){
-            res1 += val * 4.5;
-            res2 += val;
-        }
-        else if(grade == "A0"){
-            res1 += val * 4.0;
-            res2 += val;
-        }
-        else if(grade == "B+"){
-            res1 += val * 3.5;
-            res2 += val;
-        }
-        else if(grade == "B0"){
-            res1 += val * 3.0;
-            res2 += val;
-        }
-        else if(grade == "C+"){
-            res1 += val * 2.5;
-            res2 += val;
-        }
-        else if(grade == "C0"){
-            res1 += val * 2.0;
-            res2 += val;
-        }
-        else if(grade == "D+"){
-            res1 += val * 1.5;
-            res2 += val;
-        }
-        else if(grade == "D0"){
-            res1 += val * 1.0;
-            res2 += val;
-        }
-        else if(grade == "F"){
-            res1 += val * 0.0;
-            res2 += val;
-        }
-        else if(grade == "P"){
-            continue;
-        }
-    }
-    if((res1 == 0) || (res2 == 0)){
-        printf("%.6lf", 0.0f);
-    }
-    else{
-        res = res1 / res2;
-        printf("%.6lf", res);
-    }
+int main() {
+	string majorName; double avg = 0; float sumGrade = 0;
+	double score[20]; float grade[20];
+	string input;
+	for (int i = 0; i < 20; ++i)
+	{
+		cin >> majorName >> grade[i] >> input;
+		if (input == "A+") score[i] = 4.5;
+		else if (input == "A0") score[i] = 4.0;
+		else if (input == "B+") score[i] = 3.5;
+		else if (input == "B0") score[i] = 3.0;
+		else if (input == "C+") score[i] = 2.5;
+		else if (input == "C0") score[i] = 2.0;
+		else if (input == "D+") score[i] = 1.5;
+		else if (input == "D0") score[i] = 1.0;
+		else if (input == "F") score[i] = 0.0;
+		else if (input == "P") { score[i] = 0.0; grade[i] = 0; }
+		avg += (score[i] * grade[i]);
+		sumGrade += grade[i];
+	}
+	avg = avg / sumGrade;
+	cout << fixed;
+	cout.precision(6);
+	cout << avg;
 }
