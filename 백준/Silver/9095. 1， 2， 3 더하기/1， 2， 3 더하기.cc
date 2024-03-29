@@ -1,30 +1,30 @@
 #include <iostream>
 #include <vector>
-#include <cstring>
 
 using namespace std;
 
-int T, n;
-int arr[12];
-
-int recur(int num){
-    if(num == 1) return 1;
-    if(num == 2) return 2;
-    if(num == 3) return 4;
-    if(arr[num] != -1) return arr[num];
-    return arr[num] = recur(num - 1) + recur(num - 2) + recur(num - 3);
-}
-
-int main(){
+int main()
+{
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
-    
+
+    int T, n;
     cin >> T;
-    while(T--){
+
+    vector<int> dp(12, 0);
+    dp[1] = 1;
+    dp[2] = 2;
+    dp[3] = 4;
+    for (int i = 4; i < 12; i++)
+        dp[i] = dp[i - 1] + dp[i - 2] + dp[i - 3];
+    
+
+    for (int i = 0; i < T; i++)
+    {
         cin >> n;
-        memset(arr, -1, sizeof(arr));
-        cout << recur(n) << endl;
+        cout << dp[n] << '\n';
     }
+
     return 0;
 }
