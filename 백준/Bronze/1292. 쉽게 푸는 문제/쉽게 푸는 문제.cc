@@ -1,22 +1,23 @@
 #include <iostream>
-
+#include <vector>
 using namespace std;
 
+int A, B;
+vector<int> arr;
 int main(){
-    int A, B;
-    int res = 0;
-    int arr[1001] = {0, };
-    int index = 0;
-    cin >> A >> B;
-    for(int i = 1; index < 1000; i++){
-        for(int j = 0; j < i; j++){
-            arr[index++] = i;
-            if(index == 1000)
-                break;
+    int num = 1;
+    while(true){
+        if(arr.size() >= 1000) break;
+        for(int i = 0; i < num; i++){
+            arr.push_back(num);
         }
+        num++;
     }
-    for(int i = A; i < B + 1; i++){
-        res += arr[i - 1];
+    cin >> A >> B;
+
+    int sum = 0;
+    for(int i = A - 1; i < B; i++){
+        sum += arr[i];
     }
-    cout << res;
+    cout << sum;
 }
