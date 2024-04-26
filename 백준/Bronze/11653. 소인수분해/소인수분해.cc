@@ -18,9 +18,7 @@ int main(){
             N = N / i;
             arr.push_back(i);
         }
-        else{
-            i++;
-        }
+        else i++;
     }
     sort(arr.begin(), arr.end());
     for(int i = 0; i < arr.size(); i++) cout << arr[i] << endl;
