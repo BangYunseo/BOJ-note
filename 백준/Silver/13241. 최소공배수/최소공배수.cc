@@ -4,9 +4,7 @@ using namespace std;
 
 long long int A, B, gcd;
 int GCD(int a, int b){
-    if(b == 0){
-        return a;
-    }
+    if(b == 0) return a;
     return GCD(b, a % b);
 }
 
