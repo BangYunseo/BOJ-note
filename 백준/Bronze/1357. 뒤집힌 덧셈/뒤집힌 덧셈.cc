@@ -4,17 +4,14 @@
 
 using namespace std;
 
-string a, b;
-int res;
+string X, Y;
 int main(){
-    cin >> a >> b;
-    reverse(a.begin(), a.end());
-    reverse(b.begin(), b.end());
-    
-    int X = stoi(a);
-    int Y = stoi(b);
-    res = X + Y;
-    string result = to_string(res);
-    reverse(result.begin(), result.end());
-    cout << stoi(result) << endl;
+    cin >> X >> Y;
+    reverse(X.begin(), X.end());
+    reverse(Y.begin(), Y.end());
+
+    int temp = stoi(X) + stoi(Y);
+    string res = to_string(temp);
+    reverse(res.begin(), res.end());
+    cout << stoi(res);
 }
