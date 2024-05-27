@@ -2,14 +2,12 @@
 
 using namespace std;
 
-int A, B, V, resday = 1;
+int A, B, V;
 int main(){
     cin >> A >> B >> V;
-    resday += (V - A) / (A - B);
-    if((V - A) % (A - B) != 0)
-        resday++;
-    if(A >= V)
-        cout << "1";
-    else
-        cout << resday;
+    int res = 1;
+    res += (V - A) / (A - B);
+    if((V - A) % (A - B) != 0) res++;
+    if (A >= V) cout << '1';
+    else cout << res;
 }
