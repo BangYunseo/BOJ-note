@@ -1,22 +1,24 @@
 #include <iostream>
-#include <algorithm>
+
 using namespace std;
 
 int N, M;
 int arr[101];
-int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
-    
+int main(){
     cin >> N >> M;
-    for(int a = 1; a <= N; a++) arr[a] = a;
-    int i, j;
-    while(M--){
-        cin >> i >> j;
-        if(i == j) continue;
-
-        for(int b = 0; b <= (j - i) / 2; b++) swap(arr[i + b], arr[j - b]);
+    for(int i = 1; i <= N; i++){
+        arr[i] = i;
     }
-    for(int d = 1; d <= N; d++) cout << arr[d] << ' ';
+    
+    int temp1, temp2;
+    while(M--){
+        cin >> temp1 >> temp2;
+        for(int i = 0; i <= (temp2 - temp1) / 2; i++){
+            swap(arr[temp1 + i], arr[temp2 - i]);
+        }
+    }
+    
+    for(int i = 1; i <= N; i++){
+        cout << arr[i] << ' ';
+    }
 }
