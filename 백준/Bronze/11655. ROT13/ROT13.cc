@@ -3,23 +3,19 @@
 
 using namespace std;
 
-string S;
 int main(){
-    ios_base::sync_with_stdio(false);
-	cin.tie(NULL);    
-    cout.tie(NULL);
-    getline(cin, S);
-    for(int i = 0; i < S.length(); i++){
-        if(S[i] >= 'a' && S[i] <= 'z'){
-            S[i] += 13;
-            if(S[i] > 'z' || S[i] < 'a')
-                S[i] -= 26;
+    string word;
+    getline(cin, word);
+    
+    for(int i = 0; i < word.length(); i++){
+        if((word[i] >= 'a') && (word[i] <= 'z')){
+            char ch = ((word[i] - 'a' + 13) % 26) + 'a';
+            cout << ch;
         }
-        else if(S[i] >= 'A' && S[i] <= 'Z'){
-            S[i] += 13;
-            if(S[i] > 'Z')
-                S[i] -= 26;
+        else if((word[i] >= 'A') && (word[i] <= 'Z')){
+            char ch = ((word[i] - 'A' + 13) % 26) + 'A';
+            cout << ch;
         }
+        else cout << word[i];
     }
-    cout << S;
 }
