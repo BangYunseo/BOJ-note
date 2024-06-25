@@ -1,24 +1,24 @@
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
-int N, M;
-int arr[101];
 int main(){
+    int N, M;
     cin >> N >> M;
-    for(int i = 1; i <= N; i++){
-        arr[i] = i;
-    }
     
+    int arr[101];
+    
+    for(int i = 0; i < N; i++){
+        arr[i] = i + 1;    
+    }
     int temp1, temp2;
-    while(M--){
+    for(int i = 0; i < M; i++){
         cin >> temp1 >> temp2;
-        for(int i = 0; i <= (temp2 - temp1) / 2; i++){
-            swap(arr[temp1 + i], arr[temp2 - i]);
-        }
+        reverse(arr + temp1 - 1, arr + temp2);
     }
     
-    for(int i = 1; i <= N; i++){
+    for(int i = 0; i < N; i++){
         cout << arr[i] << ' ';
     }
 }
