@@ -3,22 +3,18 @@
 using namespace std;
 
 int main(){
-    int T;
+    int T, k, n;
+    int arr[15][15];
     cin >> T;
-    
-    int arr[15][15] = {0, };
-    
-    for(int i = 0; i <= 14; i++){
-        for(int j = 1; j <= 14; j++){
-            if(i == 0) arr[0][j] = j;
-            else{
-                for(int k = 1; k <= j; k++) arr[i][j] += arr[i - 1][k];
+    while(T--){
+        cin >> k >> n;
+        for(int i = 0; i <= k; i++){
+            for(int j = 1; j <= n; j++){
+                if(i == 0) arr[0][j] = j;
+                else if(j == 1) arr[i][1] = 1;
+                else arr[i][j] = arr[i][j - 1] + arr[i - 1][j];
             }
         }
-    }
-    for(int i = 0; i < T; i++){
-        int k, n;
-        cin >> k >> n;
         cout << arr[k][n] << endl;
     }
 }
