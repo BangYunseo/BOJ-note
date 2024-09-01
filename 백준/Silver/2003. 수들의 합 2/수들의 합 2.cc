@@ -2,26 +2,32 @@
 
 using namespace std;
 
+int N, M;
+int count = 0;
+
 int main(){
-    long long int N, M;
     cin >> N >> M;
-    
-    int arr[N];
-    for(int i = 0; i < N; i++){
-        cin >> arr[i];
-    }
-    
-    int res = 0, count = 0;
-    for(int i = 0; i < N; i++){
-        for(int j = i; j < N; j++){
-            res += arr[j];
-            if(res == M){
-                count++;
-                res = 0;
-                break;
+    int arr[N + 1];
+
+    for(int i = 0; i < N; i++) cin >> arr[i];
+
+    int start = 0, end = 0;
+    int res = arr[0];
+
+    while(start <= end && end < N){
+        if(res < M){
+            res += arr[++end];
+        } else if(res == M){
+            count++;
+            res += arr[++end];
+        } else if(res > M){
+            res -= arr[start++];
+
+            if(start > end){
+                end = start;
+                res = arr[start];
             }
         }
-        if(res != 0) res = 0;
     }
     cout << count;
 }
