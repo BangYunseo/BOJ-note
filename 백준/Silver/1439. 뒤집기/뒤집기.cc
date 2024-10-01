@@ -3,28 +3,25 @@
 
 using namespace std;
 
-int main() {
+int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
 
     string word;
     cin >> word;
-    
-    int count_0 = 0, count_1 = 0;
 
-    // 첫 번째 문자에 대한 처리
+    long long count_1 = 0, count_0 = 0;
+
     if (word[0] == '0') count_0++;
     else count_1++;
-
-    // 두 번째 문자부터 그룹을 나눔
-    for (int i = 1; i < word.length(); i++) {
-        if (word[i] != word[i - 1]) {
-            if (word[i] == '0') count_0++;
-            else count_1++;
+    
+    for(int i = 1; i < word.length(); i++){
+        if(word[i] != word[i - 1]){
+            if(word[i] == '1') count_1++;
+            else count_0++;
         }
     }
-
-    // 더 적은 그룹을 뒤집는 것이 최소 횟수
-    cout << min(count_0, count_1) << "\n";
+    if(word.length() == 1) cout << 0;
+    else cout << min(count_1, count_0);
 }
