@@ -17,8 +17,6 @@ int main(){
     for(int i = 1; i <= 5; i++){
         for(int j = 1; j <= N - 1; j++){
             for(int k = j + 1; k <= N; k++){
-                if(k == j) continue;
-                
                 if(arr[j][i] == arr[k][i]){
                     check[j][k] = true;
                     check[k][j] = true;
