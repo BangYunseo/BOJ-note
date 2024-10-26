@@ -3,7 +3,6 @@
 using namespace std;
 
 int main() {
-    string word;
-    while(getline(cin, word)) cout << word << endl;
+    cout << "Total days in Year" << endl << 365 << endl << "Circumference rate" << endl << "3.1415926535";
     return 0;
 }
