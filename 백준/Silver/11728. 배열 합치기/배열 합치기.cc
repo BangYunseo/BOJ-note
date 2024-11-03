@@ -5,13 +5,18 @@
 using namespace std;
 
 int main(){
-    long long int N, M;
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    
+    long long int N, M, temp;
     cin >> N >> M;
     
-    int arr[N + M];
-    for(int i = 0; i < N + M; i++) 
-        cin >> arr[i];
-    sort(arr, arr + N + M);
-    for(int i = 0; i < N + M; i++) 
-        cout << arr[i] << ' ';
+    vector<int> arr;
+    for(int i = 0; i < N + M; i++){
+        cin >> temp;
+        arr.push_back(temp);
+    }
+    sort(arr.begin(), arr.end());
+    for(int i = 0; i < size(arr); i++) cout << arr[i] << ' ';
 }
