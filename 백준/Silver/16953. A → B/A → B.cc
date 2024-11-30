@@ -3,7 +3,7 @@
 using namespace std;
 
 int count = 1;
-long long int A, B;
+int A, B;
 
 void bfs(int A, int B){
     while(true){
@@ -25,8 +25,6 @@ void bfs(int A, int B){
 
 int main(){
     cin >> A >> B;
-    
     bfs(A, B);
-    
     cout << count;
 }
