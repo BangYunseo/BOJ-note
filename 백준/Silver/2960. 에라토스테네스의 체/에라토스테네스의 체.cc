@@ -1,23 +1,33 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
-int N, K;
-int arr[1001] = {0, };
-
-int main(){
-    cin >> N >> K;
-    int num = 2, res = 1;
-    
+int func(int a, int b){
+    vector<bool> v(a + 1, true);
     int count = 0;
-    for(int i = 2; i <= N; i++){
-        for(int j = i; j <= N; j += i){
-            int temp = 0;
-            for(int k = 0; arr[k] != 0; k++){
-                if(arr[k] == j) temp++;
+
+    for(int i = 2; i <= a; i++){
+        // 2 ~ N 까지의 수 
+        if(v[i] == false) continue;
+        // 이미 지워진 수라면 건너뛰기
+
+        for(int j = i; j <= a; j += i){
+            // i의 배수인 j
+            if(v[j] == true){
+                // 지우지 않은 수인 경우
+                v[j] = false;
+                // 지우기
+                if(++count == b) return j;
+                // b번째 값(K)이라면 리턴
             }
-            if(temp == 0) arr[count++] = j;
         }
     }
-    cout << arr[K - 1];
+    return -1;
+}
+
+int main(){
+    int N, K;
+    cin >> N >> K;
+    cout <<  func(N, K);
 }
