@@ -2,15 +2,9 @@
 
 using namespace std;
 
-int gcd(int a, int b){
-    if(a < b){
-        int temp = a;
-        a = b;
-        b = temp;
-    }
-
-    if(a % b == 0) return b;
-    else return gcd(b, a % b);
+int gcd(int a, int b) {
+    if (b == 0) return a;
+    return gcd(b, a % b);
 }
 
 unsigned long long LCM(unsigned long long a, unsigned long long b){
