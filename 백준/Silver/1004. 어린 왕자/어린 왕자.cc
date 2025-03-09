@@ -16,7 +16,6 @@ int main(){
         int count = 0;
         cin >> x1 >> y1 >> x2 >> y2 >> n;
         
-        
         while(n--){
             cin >> cx >> cy >> r;
             
