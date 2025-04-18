@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int N, M, sum, i, j, arr[100001];
+int N, M, temp, i, j, arr[100001];
 
 int main() {
     ios_base::sync_with_stdio(false);
@@ -10,14 +10,14 @@ int main() {
     cout.tie(NULL);
     
     cin >> N;
-    for(int i = 1; i <= N; i++) cin >> arr[i];
-
+    for(int i = 1; i <= N; i++){
+        cin >> temp;
+        arr[i] = arr[i - 1] + temp;
+    }
+        
     cin >> M;
     while(M--){
         cin >> i >> j;
-        sum = 0;
-        for(int a = i; a <= j; a++) 
-            sum += arr[a];
-        cout << sum << '\n';
+        cout << arr[j] - arr[i - 1] << '\n';
     }
 }
