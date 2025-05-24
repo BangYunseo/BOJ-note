@@ -29,7 +29,7 @@ int main(){
     // k == 2 : 오른쪽 이동
     
     vector<vector<vector<int>>> dp(N + 1, vector<vector<int>>(M + 1, vector<int>(3, INF)));
-    // 그리드 3차원 벡터(패턴 저장 가능!) : space[N + 1][M + 1][3]; 
+    // 그리드 3차원 벡터(패턴 저장) : space[N + 1][M + 1][3]; 
     
    for(int j = 1; j <= M; j++){
         // 첫 행은 어떤 방향이더라도 도달
@@ -43,7 +43,7 @@ int main(){
             if(j + 1 <= M) 
                 dp[i][j][0] = space[i][j] + min(dp[i - 1][j + 1][1], dp[i - 1][j + 1][2]);
             dp[i][j][1] = space[i][j] + min(dp[i - 1][j][0], dp[i - 1][j][2]);
-            if(j - 1 >= 1)
+            if(j >= 2)
                 dp[i][j][2] = space[i][j] + min(dp[i - 1][j - 1][0], dp[i - 1][j - 1][1]);
         }
     }
