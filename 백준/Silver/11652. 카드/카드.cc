@@ -13,6 +13,10 @@ bool compare(const pair<long long, int>& a, const pair<long long, int>& b){
 }
 
 int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    
     cin >> N;
     map<long long, int> m;
     
