@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <algorithm> // std::sort와 std::binary_search를 사용하기 위해 필요
+#include <algorithm>
 
 using namespace std;
 
@@ -11,15 +11,14 @@ int main() {
     int T;
     cin >> T;
     
-    while(T--) {
+    while(T--) 
+    {
         int N, M, temp;
         
         cin >> N;
         vector<int> numList1(N);
         for(int i = 0; i < N; i++) 
-        {
             cin >> numList1[i];
-        }
         
         sort(numList1.begin(), numList1.end());
         
