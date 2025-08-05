@@ -1,38 +1,36 @@
 #include <iostream>
-#include <map>
+#include <vector>
+#include <algorithm> // std::sort와 std::binary_search를 사용하기 위해 필요
 
 using namespace std;
 
-int main(){
+int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    cout.tie(NULL);
     
-    int T, N, M;
+    int T;
     cin >> T;
     
-    while(T--)
-    {
-        cin >> N;
-        map<int, int> numList;
+    while(T--) {
+        int N, M, temp;
         
-        int temp;
-        for(int i = 0; i < N; i++)
+        cin >> N;
+        vector<int> numList1(N);
+        for(int i = 0; i < N; i++) 
         {
-            cin >> temp;
-            numList[temp] = 1;
+            cin >> numList1[i];
         }
         
+        sort(numList1.begin(), numList1.end());
+        
         cin >> M;
-        for(int i = 0; i < M; i++)
+        for(int i = 0; i < M; i++) 
         {
             cin >> temp;
-            if(numList.count(temp)) 
-                cout << 1;
+            if(binary_search(numList1.begin(), numList1.end(), temp))
+                cout << 1 << '\n';
             else 
-                cout << 0;
-            
-            cout << '\n';
+                cout << 0 << '\n';
         }
     }
     
