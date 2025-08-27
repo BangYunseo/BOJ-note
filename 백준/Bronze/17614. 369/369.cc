@@ -4,6 +4,10 @@
 using namespace std;
 
 int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    
     int N, count = 0;
     cin >> N;
     
@@ -15,7 +19,6 @@ int main(){
             if(word[j] == '3' || word[j] == '6' || word[j] == '9')
             {
                 count++;
-                break;
             }
         }
     }
